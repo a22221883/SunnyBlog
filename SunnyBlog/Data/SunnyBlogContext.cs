@@ -15,5 +15,6 @@ namespace SunnyBlog.Data
         }
 
         public DbSet<SunnyBlog.Models.BlogContent> BlogContent { get; set; }
+        public DbSet<SunnyBlog.Models.Category> Category { get; set; }
     }
 }

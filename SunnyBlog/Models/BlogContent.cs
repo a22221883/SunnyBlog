@@ -9,9 +9,12 @@ namespace SunnyBlog.Models
     {
         public int Id { get; set; } // 自動生成的文章ID
         public string Title { get; set; } // 標題
-        public string Category { get; set; } // 分類
+        //public string Category { get; set; } // 分類
         public string Content { get; set; } // 內容
         public string Author { get; set; } // 作者
+
+        public int CategoryId { get; set; } //類別 (Foreign Key)
+        public Category Category { get; set; }  // 分類
         //public DateTime DatePublished { get; set; } // 發佈日期
         /*public List<string> Tags { get; set; } // 標籤
         public string Excerpt { get; set; } // 摘要
@@ -25,5 +28,12 @@ namespace SunnyBlog.Models
         public List<BlogContent> RelatedPosts { get; set; } // 相關文章
         public string ShareLinks { get; set; } // 分享連結
         public DateTime UpdatedDate { get; set; } // 更新日期*/
+    }
+
+    public class Category
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }  //類別名稱
+        public List<BlogContent> BlogContent { get; set; }
     }
 }

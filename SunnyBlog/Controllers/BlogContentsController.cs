@@ -19,6 +19,19 @@ namespace SunnyBlog.Controllers
             _context = context;
         }
 
+        public IActionResult CreateCategory()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateCategory(Category category)
+        {
+            _context.Category.Add(category);
+            await _context.SaveChangesAsync();
+            return View();
+        }
+
         // GET: BlogContents
         public async Task<IActionResult> Index()
         {
@@ -46,6 +59,7 @@ namespace SunnyBlog.Controllers
         // GET: BlogContents/Create
         public IActionResult Create()
         {
+            ViewData["Categories"] = new SelectList(_context.Set<Category>(), "Id", "Name");
             return View();
         }
 
@@ -54,7 +68,7 @@ namespace SunnyBlog.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Category,Content,Author")] BlogContent blogContent)
+        public async Task<IActionResult> Create([Bind("Id,Title,CategoryId,Content,Author")] BlogContent blogContent)
         {
             if (ModelState.IsValid)
             {

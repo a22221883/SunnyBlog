@@ -20,13 +20,13 @@
 ## 如何編譯和運行
 
 1. **複製專案：**
-   從 GitHub 上複製此專案到您的開發工具。
+- 從 GitHub 上複製此專案到您的開發工具。
    
 2. **同步localDB：**
-   dotnet ef migrations list
-   dotnet ef database update
+- dotnet ef migrations list
+- dotnet ef database update
 
-   *若找不到專案，請指定專案位置
-   例如：
-   dotnet ef migrations list --startup-project "C:\Visual Studio 2022 Work" -> 檔案位置請自行替換
-   dotnet ef database update --startup-project "C:\Visual Studio 2022 Work Project\SunnyBlog\SunnyBlog" -> 檔案位置請自行替換
+- *若找不到專案，請指定專案位置
+- 例如：
+- dotnet ef migrations list --startup-project "C:\Visual Studio 2022 Work" -> 檔案位置請自行替換
+- dotnet ef database update --startup-project "C:\Visual Studio 2022 Work Project\SunnyBlog\SunnyBlog" -> 檔案位置請自行替換
